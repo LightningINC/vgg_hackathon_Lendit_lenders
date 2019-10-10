@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lendit.Data;
 
-namespace donetproj.Migrations
+namespace lendit.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190708025447_initial Migration")]
-    partial class initialMigration
+    [Migration("20190708092608_initial migration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,15 +24,15 @@ namespace donetproj.Migrations
                     b.Property<int>("EligibilityId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("BVN");
+                    b.Property<string>("BVN");
 
-                    b.Property<int>("NIN");
+                    b.Property<string>("NIN");
 
                     b.Property<string>("Status");
 
                     b.Property<string>("UserHash");
 
-                    b.Property<int>("VCN");
+                    b.Property<string>("VCN");
 
                     b.HasKey("EligibilityId");
 
@@ -47,7 +47,7 @@ namespace donetproj.Migrations
                     b.Property<int>("LenderBorrowerTransactionId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Amount");
+                    b.Property<double>("Amount");
 
                     b.Property<string>("BorrowHash");
 
@@ -69,7 +69,7 @@ namespace donetproj.Migrations
                     b.Property<int>("LenderPoolId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Amount");
+                    b.Property<double>("Amount");
 
                     b.Property<DateTime>("Date");
 
@@ -109,7 +109,7 @@ namespace donetproj.Migrations
                     b.Property<int>("TransactionEntityId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Amount");
+                    b.Property<double>("Amount");
 
                     b.Property<DateTime>("Date");
 
@@ -129,15 +129,17 @@ namespace donetproj.Migrations
 
                     b.Property<string>("AccountName");
 
-                    b.Property<int>("AccountNo");
+                    b.Property<string>("AccountNo");
 
                     b.Property<string>("Bank");
+
+                    b.Property<double>("CreditScore");
 
                     b.Property<string>("Email");
 
                     b.Property<string>("Password");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("UserHashEx");
 
                     b.HasKey("UserHash");
 
@@ -151,9 +153,9 @@ namespace donetproj.Migrations
 
                     b.Property<string>("Balance");
 
-                    b.Property<int>("PrivateKey");
+                    b.Property<string>("PrivateKey");
 
-                    b.Property<int>("PublicKey");
+                    b.Property<string>("PublicKey");
 
                     b.Property<string>("UserHash");
 

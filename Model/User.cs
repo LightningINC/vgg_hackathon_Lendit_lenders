@@ -5,14 +5,15 @@ namespace lendit.Model
 {
     public class User
     {
-        public int UserId { get; set; }
+        public string UserHashEx { get; set; }
         [Key]
         public string UserHash { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string AccountName { get; set; }
-        public int AccountNo { get; set; }
+        public string AccountNo { get; set; }
         public string Bank { get; set; }
+        public double CreditScore {get; set;}
         public Wallet Wallet {get; set;}
         public ICollection<TransactionEntity> TransactionEntity { get; set; }
         public Eligibility Eligibility {get; set;}

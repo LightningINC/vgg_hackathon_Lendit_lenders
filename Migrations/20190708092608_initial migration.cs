@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace donetproj.Migrations
+namespace lendit.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,12 +28,13 @@ namespace donetproj.Migrations
                 columns: table => new
                 {
                     UserHash = table.Column<string>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
+                    UserHashEx = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     AccountName = table.Column<string>(nullable: true),
-                    AccountNo = table.Column<int>(nullable: false),
-                    Bank = table.Column<string>(nullable: true)
+                    AccountNo = table.Column<string>(nullable: true),
+                    Bank = table.Column<string>(nullable: true),
+                    CreditScore = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,9 +48,9 @@ namespace donetproj.Migrations
                     EligibilityId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserHash = table.Column<string>(nullable: true),
-                    BVN = table.Column<int>(nullable: false),
-                    NIN = table.Column<int>(nullable: false),
-                    VCN = table.Column<int>(nullable: false),
+                    BVN = table.Column<string>(nullable: true),
+                    NIN = table.Column<string>(nullable: true),
+                    VCN = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -70,7 +71,7 @@ namespace donetproj.Migrations
                     LenderBorrowerTransactionId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Status = table.Column<string>(nullable: true),
-                    Amount = table.Column<int>(nullable: false),
+                    Amount = table.Column<double>(nullable: false),
                     LenderHash = table.Column<string>(nullable: true),
                     BorrowHash = table.Column<string>(nullable: true)
                 },
@@ -99,7 +100,7 @@ namespace donetproj.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     LenderHash = table.Column<string>(nullable: true),
                     InterestRate = table.Column<int>(nullable: false),
-                    Amount = table.Column<int>(nullable: false),
+                    Amount = table.Column<double>(nullable: false),
                     Status = table.Column<string>(nullable: true),
                     Notes = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false)
@@ -122,7 +123,7 @@ namespace donetproj.Migrations
                     TransactionEntityId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Date = table.Column<DateTime>(nullable: false),
-                    Amount = table.Column<int>(nullable: false),
+                    Amount = table.Column<double>(nullable: false),
                     UserHash = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -143,8 +144,8 @@ namespace donetproj.Migrations
                     WalletId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     WalletHash = table.Column<string>(nullable: true),
-                    PrivateKey = table.Column<int>(nullable: false),
-                    PublicKey = table.Column<int>(nullable: false),
+                    PrivateKey = table.Column<string>(nullable: true),
+                    PublicKey = table.Column<string>(nullable: true),
                     Balance = table.Column<string>(nullable: true),
                     UserHash = table.Column<string>(nullable: true)
                 },

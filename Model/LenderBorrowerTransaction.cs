@@ -6,7 +6,7 @@ namespace lendit.Model
     {
         public int LenderBorrowerTransactionId { get; set; } 
         public string Status { get; set; }
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         public string LenderHash {get; set;}
         public User Lender {get; set;}

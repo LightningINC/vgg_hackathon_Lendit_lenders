@@ -10,9 +10,9 @@ namespace lendit.Model
 
         [ForeignKey(nameof(UserHash))]
         public User User { get; set; }
-        public int BVN { get; set; }
-        public int NIN { get; set; }
-        public int VCN {get; set;}
+        public string BVN { get; set; }
+        public string NIN { get; set; }
+        public string VCN {get; set;}
         public string Status {get; set;}
     }
 }
